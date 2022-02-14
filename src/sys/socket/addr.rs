@@ -956,7 +956,7 @@ impl SockAddr {
     /// ensure that the pointer is valid.
     #[cfg(not(target_os = "fuchsia"))]
     #[cfg(feature = "net")]
-    pub(crate) unsafe fn from_libc_sockaddr(addr: *const libc::sockaddr) -> Option<SockAddr> {
+    pub unsafe fn from_libc_sockaddr(addr: *const libc::sockaddr) -> Option<SockAddr> {
         if addr.is_null() {
             None
         } else {
